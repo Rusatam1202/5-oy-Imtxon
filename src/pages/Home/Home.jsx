@@ -17,6 +17,8 @@ import {
 } from './HomeStyled'
 import styled from 'styled-components'
 import { useState } from 'react'
+import Hero from '../../components/Hero/Hero'
+import HomeForm from './HomeForm/HomeForm'
 
 export const Home = () => {
 
@@ -60,6 +62,8 @@ export const Home = () => {
           </HomeDropDownLink>
         </HomeHeaderNavWrapper>
       </HomeHeader>
+      <Hero/>
+      <HomeForm/>
     </HomeWrapper>
   )
 }

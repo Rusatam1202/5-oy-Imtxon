@@ -46,7 +46,7 @@ top: 80px;
 right: 50px;
 border-radius:10px;
 display: none;
-
+z-index: 100;
 &.active{
     display: block;
 }

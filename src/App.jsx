@@ -7,6 +7,8 @@ import { useDispatch,useSelector } from 'react-redux';
 import { setToken } from './redux/token/tokenAction';
 import { setUser } from './redux/users/userAction';
 import { GlobalStyled } from './GloballStyled';
+import Hero from './components/Hero/Hero';
+
 
 function App() {
 
@@ -20,9 +22,11 @@ const dispatch = useDispatch()
   if(token){
     return(
    <>
+   
       <Routes>
         <Route path='/' element={<Home/>}/>
       </Routes>
+      {/* <Hero/> */}
       <GlobalStyled/>
    </>
     )

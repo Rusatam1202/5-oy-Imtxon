@@ -1,0 +1,102 @@
+.slick-next, .slick-prev,.slick-arrow{
+    display: none !important;
+}
+
+/* .slick-slider{
+    position: relative;
+} */
+
+ul .slick-dots {
+  
+    width: 100px !important;
+   
+}
+.slick-dots {
+    bottom: 82px;
+    left: 80px;
+    width: 300px !important;
+}
+
+.slick-dots li  {
+    width: 57.39px;
+height: 3px;
+background: rgba(255, 255, 255, 0.6);
+border-radius: 10px ;
+position: relative;
+}
+
+ ul .slick-active {
+    background: #FFFFFF;
+}
+
+.slick-dots li button {
+    width: 100%;
+    height: 100%;
+position: absolute;
+top: 0px;
+left: 0;
+/* background-color: #fff; */
+/* visibility: hidden; */
+}
+
+.Carusel1{
+    font-family: 'Rotterburg Stylish FREE';
+font-style: normal;
+font-weight: 400;
+font-size: 61px;
+line-height: 67px;
+width: 337px;
+color: #D1B89D;
+margin: 45px auto 100px 86px;
+}
+.CaruselWerapper{
+    position: relative;
+    border-radius: 21px;
+    background-image: url('../../assets/images/RectangleBG.png'),url('../../assets/images/MaskGroup.png'),url('../../assets/images/FrameTop.png')
+    ;
+    background-position:center,right,center top;
+    background-repeat: no-repeat;
+    z-index: -51;
+}
+.CaruselWerapper::after{
+    position: absolute;
+   bottom: 0;
+   height: 100%;
+    width: 100%;
+    padding: 50px
+    ;
+    background:url('../../assets/images/FrameTop.png');
+    background-repeat: no-repeat;
+    background-position: top center ;
+    z-index: 999;
+    background-color: rgb(103, 170, 187);
+}
+/* .CaruselImg{
+    position: absolute;
+    top: 0;
+    left: 500px;
+    width: 100%;
+    padding: 50px
+    ;
+    background:url('../../assets/images/FrameTop.png'),url('../../assets/images/Framebuttom.png');
+    background-repeat: no-repeat;
+    background-position: top center , center bottom ;
+    z-index: 999;
+    background-color: rgb(103, 170, 187);
+} */
+/* .lienGradent{
+    position: absolute;
+width: 1261.9px;
+height: 346.97px;
+left: 0px;
+top: 0px;
+
+background: linear-gradient(89.16deg, #263A3D 70.78%, rgba(25, 25, 25, 0) 105.05%);
+border-radius: 21px;
+}
+
+.heroWrapper{
+    width: 1301px;
+margin: 0;
+padding: 21px 0 0 100px;
+} */
