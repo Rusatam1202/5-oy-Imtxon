@@ -52,9 +52,10 @@ margin: 45px auto 100px 86px;
 .CaruselWerapper{
     position: relative;
     border-radius: 21px;
-    background-image: url('../../assets/images/RectangleBG.png'),url('../../assets/images/MaskGroup.png'),url('../../assets/images/FrameTop.png')
+    background-image: url('../../assets/images/photocaruselbg.jpg')
+    /* url('../../assets/images/MaskGroup.png'),url('../../assets/images/FrameTop.png') */
     ;
-    background-position:center,right,center top;
+    background-position:center;
     background-repeat: no-repeat;
     z-index: -51;
 }

@@ -3,10 +3,14 @@ import styled from "styled-components";
 // 
 
 
+
+
+
+
 export const HomeWrapper =styled.div`
 width: 1301px;
 margin: 0;
-padding: 21px 0 0 100px;
+padding: 21px 100px 0 0;
 
 `
 export const HomeHeader =styled.div`
@@ -83,5 +87,3 @@ align-items: center;
 justify-content: space-between;
 
 `
-
-// export const HomeWrapper =styled.div``

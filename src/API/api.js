@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-const BASE_URL = 'http://10.10.3.68:5000'
+const BASE_URL = 'http://10.10.1.166:5000'
 
 export const api={
     userRegister:(user)=> axios.post(BASE_URL + '/user/register',user),
