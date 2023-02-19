@@ -39,7 +39,7 @@ function App() {
           <Route path='/AddBook' element={<AddBook/>}/>
           <Route path='/BookPage' element={<BookPage/>}/>
           <Route path='/Profile' element={<Profile/>}/>
-          <Route path='/AuthorSinglePage' element={<AuthorSinglePage/>}/>
+          <Route path='/AuthorSinglePage:id' element={<AuthorSinglePage/>}/>
           <Route path='/BooksSinglePage:id' element={<BooksSinglePage/>}/>
           <Route path='/Kategory' element={<Kategory/>}/>
           <Route path='/ProfliePage' element={<ProfliePage/>}/>

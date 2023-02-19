@@ -1,29 +1,54 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { HomeHeaders } from '../Home/HomeHeader/HomeHeader'
 import imgprofl from '../../assets/images/bekentImg/Rectangle 3.jpg'
 import imgproflSmoll from '../../assets/images/bekentImg/image 2.png'
 import {BooksSingleWrapper,BooksSingleWrapperAuthor,BooksSingleSmollContent,BooksSingleText,BooksSingleTitle,BooksSingleContent2,BooksSingleSmollText,BooksSingleSmollTitle,BooksSingleSmollspan,BooksSingleWrapperContent,BooksSingleWrapperTop,BooksSingleBooksWrapper,BooksSingleBooksWrapperTitle,BooksSingleBooksWrapperStrong,BooksSingleBooksList,BooksSingleBooksItem,BooksSingleBooksImgs,BooksSingleBooksTitle,BooksSingleBooksText} from './AuthorSinglePageStyled'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
+
+
 
 function AuthorSinglePage() {
+  const {id}=useParams()
+console.log(id.at(0));
+const [card,setCard]=useState([])
+const GetAuthor = async ()=>{
+  const data = await axios.get('http://192.168.37.86:5000/author/authorId/'+ id,{
+    headers: {
+      Authorization: localStorage.getItem('token')
+  }
+} 
+)
+console.log(data);
+if(data.status === 201){
+  setCard(data.data)
+  console.log(data);
+}
+}
+useEffect(() => {
+  GetAuthor()
+},[id]);
+console.log(card);
   return (
  <>
    <HomeHeaders/>
 <BooksSingleWrapper>
+
   <BooksSingleWrapperContent>
-    <BooksSingleWrapperAuthor src={imgprofl} width='505' height='681' alt="Imgauthor" />
+    <BooksSingleWrapperAuthor src={'http://192.168.37.86:5000/' + card.image} width='505' height='681' alt="Imgauthor" />
     <BooksSingleWrapperTop>
-      <BooksSingleTitle>O’tkir Hoshimov</BooksSingleTitle>
-      <BooksSingleText>Oʻtkir Hoshimov 1941 yil Toshkent viloyatining Zangiota (hozirgi Chilonzor) tumanidagi Doʻmbiravot mavzeida tugʻildi. Oʻ. Hoshimov mehnat faoliyatini erta boshladi. Toshkent Davlat universiteti (hozirgi Oʻzbekiston Milliy universiteti)ning jurnalistika kulliyotida oʻqish bilan baravar gazeta tahririyatida ishladi. 1959 yildan 1963 yilgacha “Temiryoʻlchi”, “Qizil Oʻzbekiston”, “Transportniy rabochiy” gazetalarida xat tashuvchi, mussaxhih, tarjimon boʻlib ishladi. Soʻng “Toshkent haqiqati” gazetasida adabiy xodim (1963–1966), “Toshkent oqshomi” gazetasida boʻlim mudiri (1966–1982), Gʻ. Gʻulom nomidagi Adabiyot va sanʼat nashriyotida bosh muharrir oʻrinbosari (1982–1985) boʻldi. 1985–1995 yillarda “Sharq yulduzi” jurnaliga bosh muharrirlik qildi. 1995 yildan 2005 yilgacha Oʻzbekiston Respublikasi Oliy Majlisining Matbuot va axborot qoʻmitasi raisi lavozimida ishladi. 2005 yildan “Teatr“ jurnalida bosh muharrir boʻlib ishladi.</BooksSingleText>
+      <BooksSingleTitle>{card.first_name}{card.last_name}</BooksSingleTitle>
+      <BooksSingleText>{card.bio}</BooksSingleText>
       <BooksSingleContent2>
         <BooksSingleSmollContent>
         <BooksSingleSmollText>Tavallud sanasi</BooksSingleSmollText>
-        <BooksSingleSmollTitle>1941</BooksSingleSmollTitle>
+        <BooksSingleSmollTitle>{card.date_of_birth}</BooksSingleSmollTitle>
         <BooksSingleSmollText>Toshkent, Uzbekistan</BooksSingleSmollText>
         </BooksSingleSmollContent>
         <BooksSingleSmollspan></BooksSingleSmollspan>
         <BooksSingleSmollContent>
         <BooksSingleSmollText>Vafot etgan sana</BooksSingleSmollText>
-        <BooksSingleSmollTitle>2013</BooksSingleSmollTitle>
+        <BooksSingleSmollTitle>{card.date_of_death}</BooksSingleSmollTitle>
         <BooksSingleSmollText>Toshkent, Uzbekistan</BooksSingleSmollText>
         </BooksSingleSmollContent>
       </BooksSingleContent2>

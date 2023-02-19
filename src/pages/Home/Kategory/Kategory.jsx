@@ -12,7 +12,7 @@ function Kategory() {
     
 
    const hendleOpen =()=>{
-    fetch('http://10.10.3.124:5000/author/genreId/1', {
+    fetch('http://192.168.37.86:5000/author/genreId/1', {
 
         method: 'GET',
     })
@@ -22,7 +22,7 @@ function Kategory() {
         console.log(card);
    }
    const hendleOpen2 =()=>{
-    fetch('http://10.10.3.124:5000/author/genreId/2', {
+    fetch('http://192.168.37.86:5000/author/genreId/2', {
 
         method: 'GET',
     })
@@ -32,7 +32,7 @@ function Kategory() {
         console.log(card);
    }
    const hendleOpen3 =()=>{
-    fetch('http://10.10.3.124:5000/author/genreId/3', {
+    fetch('http://192.168.37.86:5000/author/genreId/3', {
 
         method: 'GET',
     })
@@ -42,7 +42,7 @@ function Kategory() {
         console.log(card);
    }
    const hendleOpen4 =()=>{
-    fetch('http://10.10.3.124:5000/author/genreId/4', {
+    fetch('http://192.168.37.86:5000/author/genreId/4', {
 
         method: 'GET',
     })
@@ -90,8 +90,8 @@ function Kategory() {
                {
                 card.map((cards)=>(
                     <KategoryCardItem>
-                    <KategoryCardNavLink to={'/AuthorSinglePage'}>
-                    <img src={'http://10.10.3.124:5000/' + cards.image} width='250' height='300' alt='cards'/>
+                    <KategoryCardNavLink to={'/AuthorSinglePage'+ cards.id}>
+                    <img src={'http://192.168.37.86:5000/' + cards.image} width='250' height='300' alt='cards'/>
                     <KategoryCardP>{cards.first_name}</KategoryCardP>
                     <KategoryCardP>{cards.last_name}</KategoryCardP>
                     <KategoryCardP>{cards.date_of_birth}</KategoryCardP>
