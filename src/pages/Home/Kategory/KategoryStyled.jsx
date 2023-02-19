@@ -42,8 +42,9 @@ line-height: 27px;
 color: rgba(13, 13, 13, 0.6);
 border: none;
 background: none;
-&:active{
-    color: #C9AC8C;
+&:hover{
+    color:
+#C9AC8C;
 }
 
 `
@@ -67,5 +68,6 @@ text-decoration: none;
 export const KategoryCardNavLink= styled(NavLink)`
 
 text-decoration: none;
+
 `
 

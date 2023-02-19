@@ -28,7 +28,7 @@ function Register() {
       localStorage.setItem('token',data.data.token),
       localStorage.setItem('user',JSON.stringify(data.data.user))
        dispatch(setToken(data.data.token))
-       dispatch(setUser(data.data.user))
+      //  dispatch(setUser(data.data.user))
        navigate('/')
     }
   }

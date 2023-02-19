@@ -13,6 +13,10 @@ import Profile from './pages/Profile/Profile';
 import AuthorSinglePage from './pages/AuthorSinglePage/AuthorSinglePage';
 import BooksSinglePage from './pages/BooksSinglePage/BooksSinglePage';
 import { HomeHeaders } from './pages/Home/HomeHeader/HomeHeader'; 
+import Kategory from './pages/BookPage/Kategory/Kategory';
+import Security from './pages/Profile/Security/Security';
+import ProfliePage from './pages/Profile/ProfilePage/ProfliePage';
+import Settings from './pages/Profile/Settings/Settings';
 
 
 
@@ -36,7 +40,11 @@ function App() {
           <Route path='/BookPage' element={<BookPage/>}/>
           <Route path='/Profile' element={<Profile/>}/>
           <Route path='/AuthorSinglePage' element={<AuthorSinglePage/>}/>
-          <Route path='/BooksSinglePage' element={<BooksSinglePage/>}/>
+          <Route path='/BooksSinglePage:id' element={<BooksSinglePage/>}/>
+          <Route path='/Kategory' element={<Kategory/>}/>
+          <Route path='/ProfliePage' element={<ProfliePage/>}/>
+          <Route path='/Security' element={<Security/>}/>
+          <Route path='/Settings' element={<Settings/>}/>
         </Routes>
         {/* <Hero/> */}
         <GlobalStyled />

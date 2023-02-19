@@ -14,6 +14,7 @@ function BookPage() {
       <Hero/>
       <HomeForm/>
       <Kategory/>
+      
    </HomeWrapper>
   )
 }

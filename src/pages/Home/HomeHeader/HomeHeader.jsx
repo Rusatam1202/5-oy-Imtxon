@@ -11,7 +11,7 @@ import {
     HomeHeaderNavLinkGlavni
   } from './HomeHeaderStyled'
   import { useState } from 'react'
-  import Avatar from "../../../assets/images/1077114.png"
+  import ProfillImg from "../../../assets/images/bekentImg/ProfillImg.jpg"
 import vector from "../../../assets/images/Vector1.svg"
 import { Link, Routes,Route } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
@@ -25,6 +25,15 @@ export const HomeHeaders=()=>{
   const opContainer = useRef()
   const opArrowDown = useRef()
   const [open, setOpen] = useState(false)
+// const hendleLogoute = ()=>{
+// localStorage.removeItem('token')
+// window.location.reload('/')
+
+// }
+
+
+
+
   return (
     
   <HomeWrapper>
@@ -41,7 +50,7 @@ export const HomeHeaders=()=>{
           </HomeHeaderNavLinkGlavni>
 
           <HomeDropDown ref={opContainer} onClick={() => { setOpen(!open) }}>
-            <HomeDropDownlogo src={Avatar} width='50' height=' 50' alt="Avatar" />
+            <HomeDropDownlogo src={ProfillImg} width='50' height=' 50' alt="Avatar" />
             <img src={vector} width='11' height='6' alt='vector' />
           </HomeDropDown>
 
@@ -49,7 +58,8 @@ export const HomeHeaders=()=>{
             <HomeHeaderNavLink to={'/Profile'}>Profile</HomeHeaderNavLink>
             <HomeHeaderNavLink to={'/AddAuthor'}>Add author</HomeHeaderNavLink>
             <HomeHeaderNavLink to={'/AddBook'}>Add book</HomeHeaderNavLink>
-            <HomeHeaderNavLink to={'/'}>Log out</HomeHeaderNavLink>
+            <HomeHeaderNavLink  to={'/'}>Log out</HomeHeaderNavLink>
+            {/* onClick={hendleLogoute} */}
             <Routes>
               <Route path='/AddAuthor' element={<AddAuthor/>}/>
             </Routes>

@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -41,7 +42,7 @@ line-height: 27px;
 color: rgba(13, 13, 13, 0.6);
 border: none;
 background: none;
-&:active{
+&.active{
     color: #C9AC8C;
 }
 
@@ -60,5 +61,8 @@ border-radius:5px;
 `
 export const KategoryCardP= styled.p`
 text-align: center;
+`
+export const KategoryCardNavLink = styled(NavLink)`
+    text-decoration: none;
 `
 

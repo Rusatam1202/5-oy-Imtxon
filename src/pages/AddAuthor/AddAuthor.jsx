@@ -35,7 +35,7 @@ export const AddAuthor = () => {
         console.log(generRrf.current?.value);
         
         //    console.log(formData);
-        fetch('http://10.10.1.166:5000/author', {
+        fetch('http://10.10.3.124:5000/author', {
             method: 'POST',
             headers: {
                 Authorization: localData

@@ -1,50 +1,71 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
-import { KategoryWrapper, KategorTitle, KategoryList, KategoryItem, KategoryButton,KategoryCardList,KategoryCardItem,KategoryCardP } from './KategoryStyled'
+
+import { KategoryWrapper, KategorTitle, KategoryList, KategoryItem, KategoryButton, KategoryCardList, KategoryCardItem, KategoryCardP,KategoryCardNavLink } from './KategoryStyled'
 
 function Kategory() {
 
+    const localData = localStorage.getItem('token')
+    const [card, setCard] = useState([])
 
-    const [card,setCard]=useState([])
+    const hendleOpen = () => {
+        fetch('http://10.10.3.124:5000/book/genreId/1', {
 
-   const hendleOpen =()=>{
-    fetch('http://localhost:5000/author/genreId/3', {
-        method: 'GET',
-        // headers: {
-        //     Authorization: localData
-        // }
-        
-    })
-        .then((res) => res.json())
-        .then((data) =>setCard(data))
-        .catch((err) => console.log(err))
+            method: 'GET',
+            headers: {
+                Authorization: localData
+            },
+
+        })
+            .then((res) => res.json())
+            .then((data) => setCard(data))
+            .catch((err) => console.log(err))
         console.log(card);
-   }
+    }
+    const hendleOpen2 = () => {
+        fetch('http://10.10.3.124:5000/book/genreId/2', {
 
+            method: 'GET',
+            headers: {
+                Authorization: localData
+            },
 
+        })
+            .then((res) => res.json())
+            .then((data) => setCard(data))
+            .catch((err) => console.log(err))
+        console.log(card);
+    }
+    const hendleOpen3 = async () => {
+        await fetch('http://10.10.3.124:5000/book/genreId/3', {
 
-    
+            method: 'GET',
+            headers: {
+                Authorization: localData
+            },
 
+        })
+            .then((res) => res.json())
+            .then((data) => setCard(data))
+            .catch((err) => console.log(err))
+        console.log(card);
+    }
+    const hendleOpen4 = async () => {
+        await fetch('http://10.10.3.124:5000/book/genreId/4', {
 
+            method: 'GET',
+            headers: {
+                Authorization: localData
+            },
 
-
-    // if (data.status === 201) {
-    //     localStorage.setItem('token', data.data.token),
-    //         localStorage.setItem('user', JSON.stringify(data.data.user))
-    //     dispatch(setToken(data.data.token))
-    //     dispatch(setUser(data.data.user))
-    //     navigate('/')
-    // }
-    // .then((res) => res.json())
-    // .then((data) => {
-    //     if (data) {
-    //         data.map((item) => console.log(item.image))
-    //     }
-    // })
-    // .catch((err) => console.log(err))
-
-
+        })
+            .then((res) => res.json())
+            .then((data) => setCard(data))
+            .catch((err) => console.log(err))
+        console.log(card);
+    }
 
 
     return (
@@ -53,22 +74,22 @@ function Kategory() {
                 <KategorTitle>Asosiy kategoriyalar</KategorTitle>
                 <KategoryList>
                     <KategoryItem>
-                        <KategoryButton  onClick={hendleOpen}>
+                        <KategoryButton onClick={hendleOpen}>
                             Temuriylar davri
                         </KategoryButton>
                     </KategoryItem>
                     <KategoryItem>
-                        <KategoryButton>
+                        <NavLink onClick={hendleOpen2} to={''}>
                             Jadid adabiyoti
-                        </KategoryButton>
+                        </NavLink>
                     </KategoryItem>
                     <KategoryItem>
-                        <KategoryButton>
+                        <KategoryButton onClick={hendleOpen3}>
                             Sovet davri
                         </KategoryButton>
                     </KategoryItem>
                     <KategoryItem>
-                        <KategoryButton>
+                        <KategoryButton onClick={hendleOpen4}>
                             MustaqilKategoryItemk davri
                         </KategoryButton>
                     </KategoryItem>
@@ -78,16 +99,24 @@ function Kategory() {
 
             </KategoryWrapper>
             <KategoryCardList>
-               {
-                card.map((cards)=>(
-                    <KategoryCardItem>
-                    <img src={'http://localhost:5000/' + cards.image} width='250' height='300' alt='cards'/>
-                    <KategoryCardP>{cards.id}</KategoryCardP>
-                    <KategoryCardP>{cards.first_name}</KategoryCardP>
-                    </KategoryCardItem>
-                ))
-               }
+                {
+                    card.map((cards) => (
+                        <KategoryCardItem>
+                             <KategoryCardNavLink to={'/BooksSinglePage:id'+ cards.genre_id }>
+                            <img src={'http://10.10.3.124:5000/' + cards.image} width='250' height='300' alt='cardimg'/>
+                            <KategorTitle>
+                                {cards.title}
+                            </KategorTitle>
+                            <KategorTitle>
+                                {cards.price}
+                            </KategorTitle>
+                            </KategoryCardNavLink>
+                        </KategoryCardItem>
+                    ))
+                }
+
             </KategoryCardList>
+
         </>
     )
 }

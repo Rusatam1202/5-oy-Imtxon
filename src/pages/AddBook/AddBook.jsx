@@ -35,10 +35,12 @@ formDate.append('description',bioRef.current?.value);
 formDate.append('image',imgRef.current?.files[0]);
 console.log(genreRef.current?.value);
 
-axios.post('http://localhost:5000/book',formDate, {
+fetch('http://10.10.3.124:5000/book',{
+    method: 'POST',
     headers: {
         Authorization: localData
     },
+    body: formDate
 })
     .then((res) => res.json())
     .then((data) => console.log(data))
@@ -72,10 +74,10 @@ axios.post('http://localhost:5000/book',formDate, {
                     </AuthorSelekt>
                     <AuthorSelekt2 ref={authorRef} >
                         <option hidden>Author</option>
-                        <option value={1}>Author</option>
-                        <option value={2}>Author1</option>
-                        <option value={3}>Author2</option>
-                        <option value={4}>Author</option>
+                        <option value={1}   id='genre-id'>Temuriylar davri </option>
+                        <option value={2} id={2}>Jadid adabiyoti </option>
+                        <option value={3} id={3}>Sovet davri </option>
+                        <option value={4} id={4}>Mustaqillik davri</option>
                     </AuthorSelekt2>
                     <AuthorTextarea ref={bioRef} placeholder="Bio"/>
                     <AuthorButton type='submit'>Create</AuthorButton>

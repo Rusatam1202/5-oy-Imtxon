@@ -9,8 +9,8 @@ import styled from "styled-components";
 
 export const HomeWrapper =styled.div`
 width: 1301px;
-margin: 0;
-padding: 21px 100px 0 0;
+margin: 0 auto;
+padding: 21px 100px 0 100PX;
 
 `
 export const HomeHeader =styled.div`
