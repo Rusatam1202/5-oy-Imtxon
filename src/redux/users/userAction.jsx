@@ -1,4 +1,4 @@
-import { REMOVE_USER, SET_USER } from "./USERType"
+import { REMOVE_USER, SET_USER } from './userType'
 
 
 
