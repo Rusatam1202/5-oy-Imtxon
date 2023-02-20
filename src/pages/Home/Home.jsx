@@ -5,7 +5,7 @@ import {
 } from './HomeStyled'
 
 import Hero from '../../components/Hero/Hero'
-// import HomeForm from './HomeForm/HomeForm'
+import HomeForm from './HomeForm/HomeForm'
 import Kategory from './Kategory/Kategory'
 import {HomeHeaders} from './HomeHeader/HomeHeader/'
 
@@ -15,7 +15,7 @@ export const Home = () => {
     <HomeWrapper>
     <HomeHeaders/>
       <Hero/>
-      {/* <HomeForm/> */}
+      <HomeForm/>
       <Kategory/>
    
 

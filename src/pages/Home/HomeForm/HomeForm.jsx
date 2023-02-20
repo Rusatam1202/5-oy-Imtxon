@@ -1,6 +1,6 @@
 import React from 'react'
 import Search from '../../../assets/images/Searchimg.png'
-import { HomeFromWerapper,HomeFromWerapperForm,HomeFromWerapperTitle,HomeFromLider,HomeFromInput,HomeFromButton } from '../Kategory/HomeFormStyled'
+import { HomeFromWerapper,HomeFromWerapperForm,HomeFromWerapperTitle,HomeFromLider,HomeFromInput,HomeFromButton } from './HomeFormStyled'
 
 function HomeForm() {
 

@@ -79,9 +79,9 @@ function Kategory() {
                         </KategoryButton>
                     </KategoryItem>
                     <KategoryItem>
-                        <NavLink onClick={hendleOpen2} to={''}>
+                        <KategoryButton onClick={hendleOpen2} >
                             Jadid adabiyoti
-                        </NavLink>
+                        </KategoryButton>
                     </KategoryItem>
                     <KategoryItem>
                         <KategoryButton onClick={hendleOpen3}>

@@ -28,11 +28,11 @@ const localData = localStorage.getItem('token')
   const opContainer = useRef()
   const opArrowDown = useRef()
   const [open, setOpen] = useState(false)
-// const hendleLogoute = ()=>{
-// localStorage.removeItem('token')
-// window.location.reload('/')
+const hendleLogoute = ()=>{
+localStorage.removeItem('token')
+window.location.reload('/')
 
-// }
+}
 const [profil,setProfil]=useState([])
 
         const GetProfile =async()=>{
@@ -81,8 +81,8 @@ console.log(profil);
             <HomeHeaderNavLink to={'/ProfilHeader'}>Profile</HomeHeaderNavLink>
             <HomeHeaderNavLink to={'/AddAuthor'}>Add author</HomeHeaderNavLink>
             <HomeHeaderNavLink to={'/AddBook'}>Add book</HomeHeaderNavLink>
-            <HomeHeaderNavLink  to={'/'}>Log out</HomeHeaderNavLink>
-            {/* onClick={hendleLogoute} */}
+            <HomeHeaderNavLink onClick={hendleLogoute} to={'/'}>Log out</HomeHeaderNavLink>
+            
             <Routes>
               <Route path='/AddAuthor' element={<AddAuthor/>}/>
             </Routes>

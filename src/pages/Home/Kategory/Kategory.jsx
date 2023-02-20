@@ -1,7 +1,7 @@
 
-import React, { useState } from 'react'
-import Search from '../../../assets/images/Searchimg.png'
-import { HomeFromWerapper,HomeFromWerapperForm,HomeFromWerapperTitle,HomeFromLider,HomeFromInput,HomeFromButton } from './HomeFormStyled'
+// import React, { useState } from 'react'
+// import Search from '../../../assets/images/Searchimg.png'
+// import { HomeFromWerapper,HomeFromWerapperForm,HomeFromWerapperTitle,HomeFromLider,HomeFromInput,HomeFromButton } from './HomeFormStyled'
 
 // function HomeForm() {
 
@@ -43,6 +43,7 @@ import { HomeFromWerapper,HomeFromWerapperForm,HomeFromWerapperTitle,HomeFromLid
 // ================================================
 
 import axios from 'axios';
+import { useState } from 'react';
 
 import styled from 'styled-components';
 
@@ -51,19 +52,19 @@ import { KategoryWrapper, KategorTitle, KategoryList, KategoryItem, KategoryButt
 function Kategory() {
 
 
-    const hendleSubmit = (evt)=>{
-        evt.preventDefault();
-        fetch('http://localhost:5000/author/genreId/1', {
-          method: 'GET',
-      })
-          .then((res) => res.json())
-          .then((data) =>{
-            if(data){
-              data.map((item)=>console.log(item))
-            }
-          })
-          .catch((err) => console.log(err))
-      }
+    // const hendleSubmit = (evt)=>{
+    //     evt.preventDefault();
+    //     fetch('http://localhost:5000/author/genreId/1', {
+    //       method: 'GET',
+    //   })
+    //       .then((res) => res.json())
+    //       .then((data) =>{
+    //         if(data){
+    //           data.map((item)=>console.log(item))
+    //         }
+    //       })
+    //       .catch((err) => console.log(err))
+    //   }
 
 
 // =======================================
@@ -117,7 +118,7 @@ function Kategory() {
 
     return (
         <>
-          <HomeFromWerapper>
+          {/* <HomeFromWerapper>
      <HomeFromWerapperForm>
      <HomeFromWerapperTitle>Qidirish</HomeFromWerapperTitle>
       <HomeFromLider  onSubmit={hendleSubmit}>
@@ -126,7 +127,7 @@ function Kategory() {
       </HomeFromLider>
      </HomeFromWerapperForm>
 
-    </HomeFromWerapper>
+    </HomeFromWerapper> */}
         {/* ============================== */}
             <KategoryWrapper>
                 <KategorTitle>Asosiy kategoriyalar</KategorTitle>
