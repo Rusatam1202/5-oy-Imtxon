@@ -23,13 +23,6 @@ export const Home = () => {
     </HomeWrapper>
   )
   
-//   axios.get('http://localhost:5000/author/genreId/1', {
-//     headers: {
-//         Authorization: localData
-//     },
-// })
-//     .then((res) => res.json())
-//     .then((data) => console.log(data))
-//     .catch((err) => console.log(err))
+
 
 }
