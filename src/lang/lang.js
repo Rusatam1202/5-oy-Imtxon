@@ -26,7 +26,7 @@ export const lang = {
             Settings:'Settings',
             Language:'Language',
             Please:'Please enter your first name.',
-            Theme:'Theme'
+            Theme:'Theme',
 
         }
     }
