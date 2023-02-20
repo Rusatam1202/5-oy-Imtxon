@@ -3,7 +3,11 @@ import {
     ProfilePageWrapper,
     ProfilePageForm, ProfilePageFormTitle, ProfilePageFormLable, ProfilePageFormStrong, ProfilePageFormInput, ProfilePageFormSmall, ProfilePageFormDriver, ProfilePageFormButton
 } from './SecurityStyled'
+
+import { useTranslation } from 'react-i18next'
 function Security() {
+
+    const {t}=useTranslation()
 
     const emile = useRef()
     const password = useRef()
@@ -14,25 +18,7 @@ function Security() {
     const hendleSubmit = (evt) => {
         evt.preventDefault();
 
-//         const userSecurity = async () => {
-//             const data = await fetch('http://localhost:5000/user/secutiry', {
-//                 method: 'PUT',
-//                 headers: {
-//                     Authorization: localStorage.getItem('token'),
-//                 },
-//                 body: JSON.stringify({
-//                     email: emile.current?.value,
-//                     currentPassword: password.current?.value,
-//                     new_password: new_password.current?.value
-//                 })
 
-
-//             })
-//             console.log(data);
-//         }
-
-
-//   userSecurity()
 const userSetting = async () => {
     const res = await fetch("http://localhost:5000/user/secutiry",{
         method:"PUT",
@@ -57,24 +43,24 @@ const userSetting = async () => {
             <ProfilePageWrapper>
 
                 <ProfilePageForm onSubmit={hendleSubmit}>
-                    <ProfilePageFormTitle>Change Or Recover Your Password:</ProfilePageFormTitle>
+                    <ProfilePageFormTitle>{t("Security.Title")}</ProfilePageFormTitle>
                     <ProfilePageFormLable htmlFor='first'>
-                        <ProfilePageFormStrong>Email</ProfilePageFormStrong>
+                        <ProfilePageFormStrong>{t("Security.Emile")}</ProfilePageFormStrong>
                         <ProfilePageFormInput ref={emile} type='email' id='first' />
-                        <ProfilePageFormSmall>Please enter your emile .</ProfilePageFormSmall>
+                        <ProfilePageFormSmall>{t("Security.Please")}</ProfilePageFormSmall>
                     </ProfilePageFormLable>
                     <ProfilePageFormLable htmlFor='last'>
-                        <ProfilePageFormStrong>Current password</ProfilePageFormStrong>
+                        <ProfilePageFormStrong>{t("Security.Current")}</ProfilePageFormStrong>
                         <ProfilePageFormInput ref={password} type='password' id='last' />
-                        <ProfilePageFormSmall>Please enter your password.</ProfilePageFormSmall>
+                        <ProfilePageFormSmall>{t("Security.Please2")}</ProfilePageFormSmall>
                     </ProfilePageFormLable>
                     <ProfilePageFormLable htmlFor='Phone'>
-                        <ProfilePageFormStrong>New Password</ProfilePageFormStrong>
+                        <ProfilePageFormStrong>{t("Security.New")}</ProfilePageFormStrong>
                         <ProfilePageFormInput ref={new_password} type='password' id='Phone' />
-                        <ProfilePageFormSmall>Please enter your  phone number.</ProfilePageFormSmall>
+                        <ProfilePageFormSmall>{t("Security.Please3")}</ProfilePageFormSmall>
                     </ProfilePageFormLable>
                     <ProfilePageFormDriver />
-                    <ProfilePageFormButton type='submit'>Save Changes</ProfilePageFormButton>
+                    <ProfilePageFormButton type='submit'>{t("Settings.Changes")}</ProfilePageFormButton>
                 </ProfilePageForm>
 
 

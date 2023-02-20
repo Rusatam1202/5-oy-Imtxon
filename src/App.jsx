@@ -18,7 +18,22 @@ import Security from './pages/Profile/Security/Security';
 import ProfliePage from './pages/Profile/ProfilePage/ProfliePage';
 import Settings from './pages/Profile/Settings/Settings';
 import ProfilHeader from './pages/Profile/ProfilHeader/ProfilHeader';
-
+// ============
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import { lang } from './lang/lang';
+i18n.use(initReactI18next).init({
+  
+    fallbackLng: 'en',
+    interpolation: {
+      escapeValue: false,
+    },
+    resources: {
+      en: {translation:lang.en},
+      ru: {translation:lang.ru},
+      uz: {translation:lang.uz},
+    }
+  })
 
 
 function App() {

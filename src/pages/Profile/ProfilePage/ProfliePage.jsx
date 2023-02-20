@@ -10,9 +10,10 @@ import {
     ProfilePageForm, ProfilePageFormTitle, ProfilePageFormLable, ProfilePageFormStrong, ProfilePageFormInput, ProfilePageFormSmall, ProfilePageFormDriver, ProfilePageFormButton
 } from './ProfilePageStyled'
 import axios from 'axios'
-
+import { useTranslation } from 'react-i18next'
+import i18next from 'i18next'
 function ProfliePage() {
-
+const {t}=useTranslation()
 
     const fristName = useRef()
     const lastName = useRef()
@@ -76,21 +77,21 @@ console.log(profil);
                 </ProfilePageImgLable>
 
                 <ProfilePageForm onSubmit={hendleSubmit}>
-                    <ProfilePageFormTitle>My profile</ProfilePageFormTitle>
+                    <ProfilePageFormTitle>{t("Profile.profile")}</ProfilePageFormTitle>
                     <ProfilePageFormLable htmlFor='first'>
-                        <ProfilePageFormStrong>First Name</ProfilePageFormStrong>
+                        <ProfilePageFormStrong>{t("Profile.frise")}</ProfilePageFormStrong>
                         <ProfilePageFormInput defaultValue={profil.first_name} ref={fristName} type='text' id='first' />
-                        <ProfilePageFormSmall>Please enter your first name.</ProfilePageFormSmall>
+                        <ProfilePageFormSmall>{t("Profile.please")}</ProfilePageFormSmall>
                     </ProfilePageFormLable>
                     <ProfilePageFormLable htmlFor='last'>
-                        <ProfilePageFormStrong>Last Name</ProfilePageFormStrong>
+                        <ProfilePageFormStrong>{t("Profile.last")}</ProfilePageFormStrong>
                         <ProfilePageFormInput defaultValue={profil.last_name} ref={lastName} type='text' id='last' />
-                        <ProfilePageFormSmall>Please enter your last Name.</ProfilePageFormSmall>
+                        <ProfilePageFormSmall>{t("Profile.please2")}</ProfilePageFormSmall>
                     </ProfilePageFormLable>
                     <ProfilePageFormLable htmlFor='Phone'>
-                        <ProfilePageFormStrong>Phone</ProfilePageFormStrong>
+                        <ProfilePageFormStrong>{t("Profile.phone")}</ProfilePageFormStrong>
                         <ProfilePageFormInput defaultValue={profil.phone} ref={phone} type='number' id='Phone' />
-                        <ProfilePageFormSmall>Please enter your  phone number.</ProfilePageFormSmall>
+                        <ProfilePageFormSmall>{t("Profile.please3")}</ProfilePageFormSmall>
                     </ProfilePageFormLable>
                     <ProfilePageFormDriver />
                     <ProfilePageFormButton type='submit'>Save Changes</ProfilePageFormButton>

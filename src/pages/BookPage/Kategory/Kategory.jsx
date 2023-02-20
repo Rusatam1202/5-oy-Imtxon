@@ -38,8 +38,7 @@ function Kategory() {
   },[])
 
 // ================================
-    // const localData = localStorage.getItem('token')
-    // const [card, setCard] = useState([])
+
 
     const hendleOpen = () => {
         fetch('http://localhost:5000/book/genreId/1', {
@@ -97,23 +96,18 @@ function Kategory() {
             .catch((err) => console.log(err))
         console.log(card);
     }
-
-
     return (
         <>
-
-<HomeFromWerapperForm  onSubmit={hendleSubmit}>
+        <HomeFromWerapper>
+<HomeFromWerapperForm  onChange={hendleSubmit}>
      <HomeFromWerapperTitle>Qidirish</HomeFromWerapperTitle>
       <HomeFromLider >
         <HomeFromInput ref={inputRef} type="text" placeholder='Adiblar, kitoblar, audiolar, maqolalar...' />
         <HomeFromButton type='submit'> <img src={Search} width='19' height='19' alt='Search img' />Izlash</HomeFromButton>
       </HomeFromLider>
      </HomeFromWerapperForm>
-
-    
+     </HomeFromWerapper>
             <KategoryWrapper>
-           
-
                 <KategorTitle>Asosiy kategoriyalar</KategorTitle>
                 <KategoryList>
                     <KategoryItem>

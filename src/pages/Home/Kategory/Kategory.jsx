@@ -3,37 +3,6 @@ import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
 import Search from '../../../assets/images/Searchimg.png'
 import { HomeFromWerapper,HomeFromWerapperForm,HomeFromWerapperTitle,HomeFromLider,HomeFromInput,HomeFromButton } from './HomeFormStyled'
-
-// function HomeForm() {
-
-// const hendleSubmit = (evt)=>{
-//   evt.preventDefault();
-//   fetch('http://localhost:5000/author/genreId/1', {
-//     method: 'GET',
-// })
-//     .then((res) => res.json())
-//     .then((data) =>{
-//       if(data){
-//         data.map((item)=>console.log(item))
-//       }
-//     })
-//     .catch((err) => console.log(err))
-// }
-//   return (
-    // <HomeFromWerapper>
-    //  <HomeFromWerapperForm>
-    //  <HomeFromWerapperTitle>Qidirish</HomeFromWerapperTitle>
-    //   <HomeFromLider  onSubmit={hendleSubmit}>
-    //     <HomeFromInput type="text" placeholder='Adiblar, kitoblar, audiolar, maqolalar...' />
-    //     <HomeFromButton type='submit'> <img src={Search} width='19' height='19' alt='Search img' />Izlash</HomeFromButton>
-    //   </HomeFromLider>
-    //  </HomeFromWerapperForm>
-
-    // </HomeFromWerapper>
-//   )
-// }
-
-// export default HomeForm
 // ================================================
 import { KategoryWrapper, KategorTitle, KategoryList, KategoryItem, KategoryButton,KategoryCardList,KategoryCardItem,KategoryCardP,KategoryCardNavLink } from './KategoryStyled'
 
@@ -65,9 +34,6 @@ function Kategory() {
   },[])
 
 // =======================================
-    
-    
-
    const hendleOpen =()=>{
     fetch('http://localhost:5000/author/genreId/1', {
 
@@ -109,14 +75,10 @@ function Kategory() {
         console.log(card);
        
    }
-
-
-
-
     return (
         <>
           <HomeFromWerapper>
-     <HomeFromWerapperForm  onSubmit={hendleSubmit}>
+     <HomeFromWerapperForm  onChange={hendleSubmit}>
      <HomeFromWerapperTitle>Qidirish</HomeFromWerapperTitle>
       <HomeFromLider >
         <HomeFromInput ref={inputRef} type="text" placeholder='Adiblar, kitoblar, audiolar, maqolalar...' />
@@ -150,8 +112,6 @@ function Kategory() {
                         </KategoryButton>
                     </KategoryItem>
                 </KategoryList>
-
-
 
             </KategoryWrapper>
             <KategoryCardList >
