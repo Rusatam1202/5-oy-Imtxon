@@ -11,7 +11,7 @@ function Kategory() {
     const [card, setCard] = useState([])
 
     const hendleOpen = () => {
-        fetch('http://192.168.37.86:5000/book/genreId/1', {
+        fetch('http://localhost:5000/book/genreId/1', {
 
             method: 'GET',
             headers: {
@@ -25,7 +25,7 @@ function Kategory() {
         console.log(card);
     }
     const hendleOpen2 = () => {
-        fetch('http://192.168.37.86:5000/book/genreId/2', {
+        fetch('http://localhost:5000/book/genreId/2', {
 
             method: 'GET',
             headers: {
@@ -39,7 +39,7 @@ function Kategory() {
         console.log(card);
     }
     const hendleOpen3 = async () => {
-        await fetch('http://192.168.37.86:5000/book/genreId/3', {
+        await fetch('http://localhost:5000/book/genreId/3', {
 
             method: 'GET',
             headers: {
@@ -53,7 +53,7 @@ function Kategory() {
         console.log(card);
     }
     const hendleOpen4 = async () => {
-        await fetch('http://192.168.37.86:5000/book/genreId/4', {
+        await fetch('http://localhost:5000/book/genreId/4', {
 
             method: 'GET',
             headers: {
@@ -103,7 +103,7 @@ function Kategory() {
                     card.map((cards) => (
                         <KategoryCardItem>
                              <KategoryCardNavLink to={'/BooksSinglePage'+cards.genre_id+cards.title }>
-                            <img src={'http://192.168.37.86:5000/' + cards.image} width='250' height='300' alt='cardimg'/>
+                            <img src={'http://localhost:5000/' + cards.image} width='250' height='300' alt='cardimg'/>
                             <KategorTitle>
                                 {cards.title}
                             </KategorTitle>

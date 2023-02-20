@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Register from "./pages/Register/Register"
 import Logn from "./pages/Logn/Logn"
@@ -12,11 +12,12 @@ import BookPage from './pages/BookPage/BookPage';
 import Profile from './pages/Profile/Profile';
 import AuthorSinglePage from './pages/AuthorSinglePage/AuthorSinglePage';
 import BooksSinglePage from './pages/BooksSinglePage/BooksSinglePage';
-import { HomeHeaders } from './pages/Home/HomeHeader/HomeHeader'; 
+import { HomeHeaders } from './pages/Home/HomeHeader/HomeHeader';
 import Kategory from './pages/BookPage/Kategory/Kategory';
 import Security from './pages/Profile/Security/Security';
 import ProfliePage from './pages/Profile/ProfilePage/ProfliePage';
 import Settings from './pages/Profile/Settings/Settings';
+import ProfilHeader from './pages/Profile/ProfilHeader/ProfilHeader';
 
 
 
@@ -32,19 +33,25 @@ function App() {
   if (token) {
     return (
       <>
-{/* <HomeHeaders/> */}
+        {/* <HomeHeaders/> */}
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/AddAuthor' element={<AddAuthor />} />
-          <Route path='/AddBook' element={<AddBook/>}/>
-          <Route path='/BookPage' element={<BookPage/>}/>
-          <Route path='/Profile' element={<Profile/>}/>
-          <Route path='/AuthorSinglePage:id' element={<AuthorSinglePage/>}/>
-          <Route path='/BooksSinglePage:id' element={<BooksSinglePage/>}/>
-          <Route path='/Kategory' element={<Kategory/>}/>
-          <Route path='/ProfliePage' element={<ProfliePage/>}/>
-          <Route path='/Security' element={<Security/>}/>
-          <Route path='/Settings' element={<Settings/>}/>
+          <Route path='/AddBook' element={<AddBook />} />
+          <Route path='/BookPage' element={<BookPage />} />
+          <Route path='/ProfilHeader' element={<Profile />} />
+          <Route path='/AuthorSinglePage:id' element={<AuthorSinglePage />} />
+          <Route path='/BooksSinglePage:id' element={<BooksSinglePage />} />
+          <Route path='/Kategory' element={<Kategory />} />
+          <Route path='ProfilHeader/*' element={<ProfilHeader />}>
+
+            <Route index element={<Navigate to={'ProfliePage'}/>} />
+            <Route path='ProfliePage' element={<ProfliePage />} />
+            <Route path='Security' element={<Security />} />
+            <Route path='Settings' element={<Settings />} />
+          </Route>
+
+
         </Routes>
         {/* <Hero/> */}
         <GlobalStyled />
@@ -59,7 +66,7 @@ function App() {
         {/* <Route path='Home/*' element={<Home />}>
           <Route path='AddAuthor' element={<AddAuthor />} />
         </Route> */}
-       
+
       </Routes>
       <GlobalStyled />
     </>

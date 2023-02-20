@@ -35,7 +35,7 @@ formDate.append('description',bioRef.current?.value);
 formDate.append('image',imgRef.current?.files[0]);
 console.log(genreRef.current?.value);
 
-fetch('http://192.168.37.86:5000/book',{
+fetch('http://localhost:5000/book',{
     method: 'POST',
     headers: {
         Authorization: localData

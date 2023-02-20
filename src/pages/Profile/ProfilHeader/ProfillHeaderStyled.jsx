@@ -18,9 +18,18 @@ align-items: center;
 padding: 23px;
 text-decoration: none;
 background: #F3F6F9;
+color: #464E5F;
 &.active{
     background: #DDE6F5;
 border-radius: 4px 4px 0px 0px;
+& strong{
+    background: #152540;
+border-radius: 4px;
+color: #FFFFFF;
+}
+& h4{
+    color: #152540;
+}
 }
 `
 export const ProfillHeaderNavLinkStrong = styled.strong`

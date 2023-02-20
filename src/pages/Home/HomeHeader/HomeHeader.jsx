@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import {
     HomeWrapper,
     HomeHeader,
@@ -17,11 +17,14 @@ import { Link, Routes,Route } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import { AddAuthor } from '../../AddAuthor/AddAuthor'
 import styled from 'styled-components'
+import axios from 'axios'
 
 
 
 
 export const HomeHeaders=()=>{
+const localData = localStorage.getItem('token')
+
   const opContainer = useRef()
   const opArrowDown = useRef()
   const [open, setOpen] = useState(false)
@@ -30,7 +33,26 @@ export const HomeHeaders=()=>{
 // window.location.reload('/')
 
 // }
+const [profil,setProfil]=useState([])
 
+        const GetProfile =async()=>{
+       const data = await axios.get('http://localhost:5000/user/me',{
+                 headers: {
+                    Authorization: localData
+                }
+             })
+            console.log(data);
+            if(data.status === 201){
+                console.log(data.data);
+                setProfil(data.data)
+            }
+        }
+console.log(profil);
+
+        useEffect(()=>{
+            // hendleSubmit()
+            GetProfile()
+        },[])
 
 
 
@@ -38,6 +60,7 @@ export const HomeHeaders=()=>{
     
   <HomeWrapper>
     <HomeHeader>
+
         <HomeHeaderTitle>Badiiyat</HomeHeaderTitle>
         <HomeHeaderNavWrapper>
           <HomeHeaderNavLinkGlavni  to={'/'}>
@@ -50,12 +73,12 @@ export const HomeHeaders=()=>{
           </HomeHeaderNavLinkGlavni>
 
           <HomeDropDown ref={opContainer} onClick={() => { setOpen(!open) }}>
-            <HomeDropDownlogo src={ProfillImg} width='50' height=' 50' alt="Avatar" />
+            <HomeDropDownlogo src={'http://localhost:5000/' + profil.image} width='50' height=' 50' alt="Avatar" />
             <img src={vector} width='11' height='6' alt='vector' />
           </HomeDropDown>
 
           <HomeDropDownLink ref={opArrowDown} className={`csfd ${open ? 'active' : 'inactive'}`}>
-            <HomeHeaderNavLink to={'/Profile'}>Profile</HomeHeaderNavLink>
+            <HomeHeaderNavLink to={'/ProfilHeader'}>Profile</HomeHeaderNavLink>
             <HomeHeaderNavLink to={'/AddAuthor'}>Add author</HomeHeaderNavLink>
             <HomeHeaderNavLink to={'/AddBook'}>Add book</HomeHeaderNavLink>
             <HomeHeaderNavLink  to={'/'}>Log out</HomeHeaderNavLink>

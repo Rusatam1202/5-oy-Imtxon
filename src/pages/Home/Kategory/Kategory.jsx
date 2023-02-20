@@ -1,6 +1,49 @@
+
+import React, { useState } from 'react'
+import Search from '../../../assets/images/Searchimg.png'
+import { HomeFromWerapper,HomeFromWerapperForm,HomeFromWerapperTitle,HomeFromLider,HomeFromInput,HomeFromButton } from './HomeFormStyled'
+
+// function HomeForm() {
+
+// const hendleSubmit = (evt)=>{
+//   evt.preventDefault();
+//   fetch('http://localhost:5000/author/genreId/1', {
+//     method: 'GET',
+// })
+//     .then((res) => res.json())
+//     .then((data) =>{
+//       if(data){
+//         data.map((item)=>console.log(item))
+//       }
+//     })
+//     .catch((err) => console.log(err))
+// }
+//   return (
+    // <HomeFromWerapper>
+    //  <HomeFromWerapperForm>
+    //  <HomeFromWerapperTitle>Qidirish</HomeFromWerapperTitle>
+    //   <HomeFromLider  onSubmit={hendleSubmit}>
+    //     <HomeFromInput type="text" placeholder='Adiblar, kitoblar, audiolar, maqolalar...' />
+    //     <HomeFromButton type='submit'> <img src={Search} width='19' height='19' alt='Search img' />Izlash</HomeFromButton>
+    //   </HomeFromLider>
+    //  </HomeFromWerapperForm>
+
+    // </HomeFromWerapper>
+//   )
+// }
+
+// export default HomeForm
+
+
+
+
+
+
+
+// ================================================
+
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom';
+
 import styled from 'styled-components';
 
 import { KategoryWrapper, KategorTitle, KategoryList, KategoryItem, KategoryButton,KategoryCardList,KategoryCardItem,KategoryCardP,KategoryCardNavLink } from './KategoryStyled'
@@ -8,11 +51,27 @@ import { KategoryWrapper, KategorTitle, KategoryList, KategoryItem, KategoryButt
 function Kategory() {
 
 
+    const hendleSubmit = (evt)=>{
+        evt.preventDefault();
+        fetch('http://localhost:5000/author/genreId/1', {
+          method: 'GET',
+      })
+          .then((res) => res.json())
+          .then((data) =>{
+            if(data){
+              data.map((item)=>console.log(item))
+            }
+          })
+          .catch((err) => console.log(err))
+      }
+
+
+// =======================================
     const [card,setCard]=useState([])
     
 
    const hendleOpen =()=>{
-    fetch('http://192.168.37.86:5000/author/genreId/1', {
+    fetch('http://localhost:5000/author/genreId/1', {
 
         method: 'GET',
     })
@@ -22,7 +81,7 @@ function Kategory() {
         console.log(card);
    }
    const hendleOpen2 =()=>{
-    fetch('http://192.168.37.86:5000/author/genreId/2', {
+    fetch('http://localhost:5000/author/genreId/2', {
 
         method: 'GET',
     })
@@ -32,7 +91,7 @@ function Kategory() {
         console.log(card);
    }
    const hendleOpen3 =()=>{
-    fetch('http://192.168.37.86:5000/author/genreId/3', {
+    fetch('http://localhost:5000/author/genreId/3', {
 
         method: 'GET',
     })
@@ -42,7 +101,7 @@ function Kategory() {
         console.log(card);
    }
    const hendleOpen4 =()=>{
-    fetch('http://192.168.37.86:5000/author/genreId/4', {
+    fetch('http://localhost:5000/author/genreId/4', {
 
         method: 'GET',
     })
@@ -58,6 +117,17 @@ function Kategory() {
 
     return (
         <>
+          <HomeFromWerapper>
+     <HomeFromWerapperForm>
+     <HomeFromWerapperTitle>Qidirish</HomeFromWerapperTitle>
+      <HomeFromLider  onSubmit={hendleSubmit}>
+        <HomeFromInput type="text" placeholder='Adiblar, kitoblar, audiolar, maqolalar...' />
+        <HomeFromButton type='submit'> <img src={Search} width='19' height='19' alt='Search img' />Izlash</HomeFromButton>
+      </HomeFromLider>
+     </HomeFromWerapperForm>
+
+    </HomeFromWerapper>
+        {/* ============================== */}
             <KategoryWrapper>
                 <KategorTitle>Asosiy kategoriyalar</KategorTitle>
                 <KategoryList>
@@ -90,8 +160,8 @@ function Kategory() {
                {
                 card.map((cards)=>(
                     <KategoryCardItem>
-                    <KategoryCardNavLink to={'/AuthorSinglePage'+ cards.id}>
-                    <img src={'http://192.168.37.86:5000/' + cards.image} width='250' height='300' alt='cards'/>
+                    <KategoryCardNavLink to={'/AuthorSinglePage'+cards.id}>
+                    <img src={'http://localhost:5000/' + cards.image} width='250' height='300' alt='cards'/>
                     <KategoryCardP>{cards.first_name}</KategoryCardP>
                     <KategoryCardP>{cards.last_name}</KategoryCardP>
                     <KategoryCardP>{cards.date_of_birth}</KategoryCardP>

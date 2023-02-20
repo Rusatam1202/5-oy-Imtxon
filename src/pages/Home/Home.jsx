@@ -5,12 +5,24 @@ import {
 } from './HomeStyled'
 
 import Hero from '../../components/Hero/Hero'
-import HomeForm from './HomeForm/HomeForm'
+// import HomeForm from './HomeForm/HomeForm'
 import Kategory from './Kategory/Kategory'
 import {HomeHeaders} from './HomeHeader/HomeHeader/'
 
 export const Home = () => {
 
+  return (
+    <HomeWrapper>
+    <HomeHeaders/>
+      <Hero/>
+      {/* <HomeForm/> */}
+      <Kategory/>
+   
+
+
+    </HomeWrapper>
+  )
+  
 //   axios.get('http://localhost:5000/author/genreId/1', {
 //     headers: {
 //         Authorization: localData
@@ -20,20 +32,4 @@ export const Home = () => {
 //     .then((data) => console.log(data))
 //     .catch((err) => console.log(err))
 
-
-
-
-
-
-  return (
-    <HomeWrapper>
-    <HomeHeaders/>
-      <Hero/>
-      <HomeForm/>
-      <Kategory/>
-   
-
-
-    </HomeWrapper>
-  )
 }

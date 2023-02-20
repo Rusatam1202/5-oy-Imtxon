@@ -1,6 +1,6 @@
 import React from 'react'
 import Search from '../../../assets/images/Searchimg.png'
-import { HomeFromWerapper,HomeFromWerapperForm,HomeFromWerapperTitle,HomeFromLider,HomeFromInput,HomeFromButton } from './HomeFormStyled'
+import { HomeFromWerapper,HomeFromWerapperForm,HomeFromWerapperTitle,HomeFromLider,HomeFromInput,HomeFromButton } from '../Kategory/HomeFormStyled'
 
 function HomeForm() {
 
@@ -8,26 +8,15 @@ const hendleSubmit = (evt)=>{
   evt.preventDefault();
   fetch('http://localhost:5000/author/genreId/1', {
     method: 'GET',
-    // headers: {
-    //     Authorization: localData
-    // }
-    
 })
     .then((res) => res.json())
     .then((data) =>{
       if(data){
-        data.map((item)=>console.log(item.image))
+        data.map((item)=>console.log(item))
       }
     })
     .catch((err) => console.log(err))
 }
-
-
-
-
-
-
-
   return (
     <HomeFromWerapper>
      <HomeFromWerapperForm>

@@ -1,5 +1,4 @@
 import React from 'react'
-import ProfilHeader from '../ProfilHeader/ProfilHeader'
 import {ProfilePageWrapper,
     ProfilePageForm,ProfilePageFormTitle,ProfilePageFormDriver,ProfilePageFormButton,ProfilePageFormSelekt,ProfilePageFormLable,ProfilePageFormStrong,ProfilePageFormSmall,ProfilePageFormSelektOption}from './SettingsStyled'
    
@@ -7,7 +6,7 @@ import {ProfilePageWrapper,
 function Settings() {
   return (
     <div>
-        <ProfilHeader/>
+       
         <ProfilePageWrapper>
 
 <ProfilePageForm>
