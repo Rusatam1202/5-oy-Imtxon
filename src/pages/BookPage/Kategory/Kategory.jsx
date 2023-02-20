@@ -1,6 +1,11 @@
-import axios from 'axios';
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import axios from 'axios'
+import React, { useEffect, useRef, useState } from 'react'
+import Search from '../../../assets/images/Searchimg.png'
+import { HomeFromWerapper,HomeFromWerapperForm,HomeFromWerapperTitle,HomeFromLider,HomeFromInput,HomeFromButton } from './HomeFormStyled'
+
+
+
+// ==================================
 
 
 import { KategoryWrapper, KategorTitle, KategoryList, KategoryItem, KategoryButton, KategoryCardList, KategoryCardItem, KategoryCardP,KategoryCardNavLink } from './KategoryStyled'
@@ -8,7 +13,33 @@ import { KategoryWrapper, KategorTitle, KategoryList, KategoryItem, KategoryButt
 function Kategory() {
 
     const localData = localStorage.getItem('token')
-    const [card, setCard] = useState([])
+    const inputRef=useRef()
+    const [card,setCard]=useState([])
+
+    const hendleSubmit = (evt)=>{
+        evt?.preventDefault();
+        const inputVal = inputRef.current?.value
+        console.log(inputVal);
+       const Search = async()=>{
+         const data = await axios.get( 'http://localhost:5000/book/search?book='+inputVal , {
+            headers: {
+                Authorization: localData
+            }
+        })
+            console.log(data);
+            if(data.status === 201){
+                setCard(data.data)
+            }
+       }
+       Search()
+    }
+    useEffect(()=>{
+        hendleSubmit()
+  },[])
+
+// ================================
+    // const localData = localStorage.getItem('token')
+    // const [card, setCard] = useState([])
 
     const hendleOpen = () => {
         fetch('http://localhost:5000/book/genreId/1', {
@@ -70,7 +101,19 @@ function Kategory() {
 
     return (
         <>
+
+<HomeFromWerapperForm  onSubmit={hendleSubmit}>
+     <HomeFromWerapperTitle>Qidirish</HomeFromWerapperTitle>
+      <HomeFromLider >
+        <HomeFromInput ref={inputRef} type="text" placeholder='Adiblar, kitoblar, audiolar, maqolalar...' />
+        <HomeFromButton type='submit'> <img src={Search} width='19' height='19' alt='Search img' />Izlash</HomeFromButton>
+      </HomeFromLider>
+     </HomeFromWerapperForm>
+
+    
             <KategoryWrapper>
+           
+
                 <KategorTitle>Asosiy kategoriyalar</KategorTitle>
                 <KategoryList>
                     <KategoryItem>

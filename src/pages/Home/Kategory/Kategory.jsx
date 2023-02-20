@@ -1,7 +1,8 @@
 
-// import React, { useState } from 'react'
-// import Search from '../../../assets/images/Searchimg.png'
-// import { HomeFromWerapper,HomeFromWerapperForm,HomeFromWerapperTitle,HomeFromLider,HomeFromInput,HomeFromButton } from './HomeFormStyled'
+import axios from 'axios'
+import React, { useEffect, useRef, useState } from 'react'
+import Search from '../../../assets/images/Searchimg.png'
+import { HomeFromWerapper,HomeFromWerapperForm,HomeFromWerapperTitle,HomeFromLider,HomeFromInput,HomeFromButton } from './HomeFormStyled'
 
 // function HomeForm() {
 
@@ -33,42 +34,38 @@
 // }
 
 // export default HomeForm
-
-
-
-
-
-
-
 // ================================================
-
-import axios from 'axios';
-import { useState } from 'react';
-
-import styled from 'styled-components';
-
 import { KategoryWrapper, KategorTitle, KategoryList, KategoryItem, KategoryButton,KategoryCardList,KategoryCardItem,KategoryCardP,KategoryCardNavLink } from './KategoryStyled'
 
 function Kategory() {
 
 
-    // const hendleSubmit = (evt)=>{
-    //     evt.preventDefault();
-    //     fetch('http://localhost:5000/author/genreId/1', {
-    //       method: 'GET',
-    //   })
-    //       .then((res) => res.json())
-    //       .then((data) =>{
-    //         if(data){
-    //           data.map((item)=>console.log(item))
-    //         }
-    //       })
-    //       .catch((err) => console.log(err))
-    //   }
-
+    const localData = localStorage.getItem('token')
+    const inputRef=useRef()
+    const [card,setCard]=useState([])
+    const hendleSubmit = (evt)=>{
+        evt?.preventDefault();
+        const inputVal = inputRef.current?.value
+        console.log(inputVal);
+       const Search = async()=>{
+         const data = await axios.get( 'http://localhost:5000/author/search?author='+inputVal , {
+            headers: {
+                Authorization: localData
+            }
+        })
+            console.log(data);
+            if(data.status === 201){
+                setCard(data.data)
+            }
+       }
+       Search()
+    }
+    useEffect(()=>{
+        hendleSubmit()
+  },[])
 
 // =======================================
-    const [card,setCard]=useState([])
+    
     
 
    const hendleOpen =()=>{
@@ -118,16 +115,16 @@ function Kategory() {
 
     return (
         <>
-          {/* <HomeFromWerapper>
-     <HomeFromWerapperForm>
+          <HomeFromWerapper>
+     <HomeFromWerapperForm  onSubmit={hendleSubmit}>
      <HomeFromWerapperTitle>Qidirish</HomeFromWerapperTitle>
-      <HomeFromLider  onSubmit={hendleSubmit}>
-        <HomeFromInput type="text" placeholder='Adiblar, kitoblar, audiolar, maqolalar...' />
+      <HomeFromLider >
+        <HomeFromInput ref={inputRef} type="text" placeholder='Adiblar, kitoblar, audiolar, maqolalar...' />
         <HomeFromButton type='submit'> <img src={Search} width='19' height='19' alt='Search img' />Izlash</HomeFromButton>
       </HomeFromLider>
      </HomeFromWerapperForm>
 
-    </HomeFromWerapper> */}
+    </HomeFromWerapper>
         {/* ============================== */}
             <KategoryWrapper>
                 <KategorTitle>Asosiy kategoriyalar</KategorTitle>
@@ -157,7 +154,7 @@ function Kategory() {
 
 
             </KategoryWrapper>
-            <KategoryCardList>
+            <KategoryCardList >
                {
                 card.map((cards)=>(
                     <KategoryCardItem>

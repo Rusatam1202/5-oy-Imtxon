@@ -3,7 +3,7 @@ import { Home } from '../Home/Home'
 import {HomeWrapper} from "./BookPageStyled"
 import { HomeHeaders } from '../Home/HomeHeader/HomeHeader' 
 import Hero from '../../components/Hero/Hero'
-import HomeForm from '../Home/HomeForm/HomeForm'
+// import HomeForm from '../Home/HomeForm/HomeForm'
 import Kategory from './Kategory/Kategory'
 
 
@@ -12,7 +12,7 @@ function BookPage() {
    <HomeWrapper>
    <HomeHeaders/>
       <Hero/>
-      <HomeForm/>
+      {/* <HomeForm/> */}
       <Kategory/>
       
    </HomeWrapper>
