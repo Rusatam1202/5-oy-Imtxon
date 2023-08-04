@@ -21,8 +21,8 @@ function Register() {
   const navigate = useNavigate()
 
   const userRegister = async (user) => {
+    console.log("salom");
     const data = await api.userRegister(user)
-    console.log(data);
     
     if(data.status === 201){
       localStorage.setItem('token',data.data.token),
@@ -36,6 +36,7 @@ function Register() {
 
   const hendleSubmit = (evt) => {
     evt.preventDefault();
+    navigate('/')
     const valuse = {
       first_name: FirstRef.current.value,
       last_name: LastRef.current.value,
