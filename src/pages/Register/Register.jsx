@@ -36,7 +36,6 @@ function Register() {
 
   const hendleSubmit = (evt) => {
     evt.preventDefault();
-    navigate('/')
     const valuse = {
       first_name: FirstRef.current.value,
       last_name: LastRef.current.value,
